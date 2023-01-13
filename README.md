@@ -2,7 +2,7 @@
 
 Hi world,
 
-The following app is related to my graduation project 
+The following app relates to my graduation project 
 for bachelor's degree in systems engineering. 
 
 
