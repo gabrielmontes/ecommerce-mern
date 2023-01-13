@@ -1,0 +1,31 @@
+{
+  "name": "mern-ecommerce",
+  "version": "1.0.0",
+  "description": "mern ecommerce",
+  "main": "server.js",
+  "type": "module",
+  "author": "Gabriel Montes",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon -L server",
+    "server": "nodemon server",
+    "client": "npm start --prefix frontend",
+    "import:database": "node ./utils/seeder",
+    "clean:database": "node ./utils/seeder -d"
+  },
+  "dependencies": {
+    "amqplib": "^0.10.3",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "express-mongo-sanitize": "^2.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongomq2": "^0.3.0",
+    "mongoose": "^6.5.2",
+    "mongoose-sequence": "^5.3.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.19"
+  }
+}

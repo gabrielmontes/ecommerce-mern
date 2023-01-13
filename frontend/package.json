@@ -1,0 +1,54 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "http://api-gw:8001",
+  "license": "MIT",
+  "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@material-ui/core": "^4.12.4",
+    "@mui/icons-material": "^5.8.0",
+    "@mui/lab": "^5.0.0-alpha.92",
+    "@mui/material": "^5.9.2",
+    "@mui/styled-engine": "^5.10.3",
+    "axios": "^0.27.2",
+    "chart.js": "^4.0.1",
+    "depcheck": "^1.4.3",
+    "eslint-config-react-app": "^7.0.1",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.4.0",
+    "react-chartjs-2": "^5.0.1",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.2",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "5.0.1",
+    "react-swipeable-views": "^0.14.0",
+    "react-swipeable-views-utils": "^0.14.0",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
+    "yarn": "^1.22.19"
+  },
+  "scripts": {
+    "start": "WATCHPACK_POLLING=true react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

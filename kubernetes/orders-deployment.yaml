@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.27.0 (b0ed6a2c9)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: orders
+  name: orders
+  namespace: ecommerce
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: orders
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.27.0 (b0ed6a2c9)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: orders
+    spec:
+      containers:
+        - image: orders:ecommerce
+          name: ms-orders
+          ports:
+            - containerPort: 8004
+          resources: {}
+          env:
+            - name: MONGO_URI
+              valueFrom:
+                secretKeyRef:
+                  name: ecommerce
+                  key: MONGO_URI
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: ecommerce
+                  key: JWT_SECRET
+      restartPolicy: Always
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.27.0 (b0ed6a2c9)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: orders
+  name: orders
+  namespace: ecommerce
+spec:
+  ports:
+    - name: "8004"
+      port: 8004
+      targetPort: 8004
+  selector:
+    io.kompose.service: orders
+status:
+  loadBalancer: {}
