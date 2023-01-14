@@ -78,6 +78,9 @@ replicaset.apps/frontend-6c754c687b   0         0         0       10m
 replicaset.apps/orders-7dd886f588     1         1         1       21h
 replicaset.apps/products-7f8b898888   1         1         1       87m
 replicaset.apps/users-59d995fcbc      1         1         1       21h
+
+# In case of connecting to mongo:
+kubectl port-forward $(kubectl get pod -n ecommerce | egrep -Eo 'database-(\w+\-)\w+') -n ecommerce 27017:27017
 ```
 
 ## Contributing
