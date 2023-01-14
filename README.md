@@ -27,10 +27,23 @@ docker-compose to kubernetes.
 ## Installation
 
 ```bash
-# If you are running WSL and kubernetes (docker desktop) run the following:
+# OPTIONAL: If you are running WSL and kubernetes (docker desktop) run the following:
 # Local dev only:
 mkdir /mnt/wsl/project-name
 sudo mount --bind project-name-path /mnt/wsl/project-name
+
+# Create docker images:
+declare -a images
+images=("users" "products" "orders" "email")
+
+for image in ${images[@]}; do
+  echo "Building microservices image: $image"
+  docker build --no-cache -t "${image}:ecommerce" ./"ms-$image" 
+
+  [[ $? -ne 0 ]] && echo "Build failed for: $image"
+done
+
+docker build --no-cache -t "frontend:ecommerce" ./frontend
 
 # Copy and paste the following output
 # into MONGO_URI value: kubernetes/secrets.yaml 
