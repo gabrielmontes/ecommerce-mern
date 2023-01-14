@@ -23,7 +23,7 @@ const TopProducts = (props) => {
 
   const theme = useTheme();
   const [activeStep, setActiveStep] = useState(0);
-  const maxSteps = products.length;
+  const maxSteps = products?.length;
 
   const phone =  useMediaQuery("(max-width: 460px)");
 

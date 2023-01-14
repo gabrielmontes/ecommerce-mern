@@ -100,12 +100,6 @@ const HomeScreen = () => {
       }
       <MainBox maxw="md" height="60vh">
         <Stack alignItems="center" spacing={2}>
-          <Typography variant='h6' color="text.secondary" align="center">
-            Encuentra en nuestra página todo sobre nuestras cervezas, nuestra historia y mucho más.
-          </Typography>
-          <Button variant="contained" onClick={handleStore} style={{ width: 200 }}>
-            Tienda
-          </Button>
           <TopProducts />
         </Stack>
       </MainBox>

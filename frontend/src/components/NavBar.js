@@ -120,7 +120,7 @@ export default function NavBar(props) {
         <Container maxWidth="xl">
           <Toolbar disableGutters={true}>
             <IconButton sx={{ ml: -1 }} onClick={handleHome}>
-              HOME
+              Home
             </IconButton>
             <Box sx={{ flexGrow: 1 }} />
             {(isOpen) ? (

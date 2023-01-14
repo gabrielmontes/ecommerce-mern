@@ -39,20 +39,13 @@ export default function Footer() {
           </Stack>
           <Stack direction="row" spacing={2}>
             <IconButton >
-              <Link variant="body2" href="https://www.facebook.com/latrojacr">
-                <FacebookIcon color="primary" />
-              </Link>
+              <FacebookIcon color="primary" />
             </IconButton>
             <IconButton>
-              <Link href="https://www.instagram.com/latrojacr" variant="body2"  >
-                <InstagramIcon color="primary" />
-              </Link>
+              <InstagramIcon color="primary" />
             </IconButton>
             <IconButton >
-              <Link href="https://wa.me/50661542266?text=Quisiera%20consultar%20sobre%20los%20productos%20de%20la%20cerveceria."
-                variant="body2"  >
-                <WhatsAppIcon color="primary" />
-              </Link>
+              <WhatsAppIcon color="primary" />
             </IconButton>
           </Stack>
         </Stack>
