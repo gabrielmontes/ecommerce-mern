@@ -48,7 +48,7 @@ const TopProducts = (props) => {
             index={activeStep}
             onChangeIndex={handleStepChange}
             enableMouseEvents>
-            {products.map((product) => (
+            {products?.map((product) => (
               <div key={product._id}>
                 {Math.abs(activeStep) <= 2 ? (
                   <ProductsCard

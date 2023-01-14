@@ -1,21 +1,26 @@
 # Mern ecommerce - microservices - kubernetes.
 
-Hi world,
+Hello world,
 
 The following app relates to my graduation project 
-for bachelor's degree in systems engineering. 
+for bachelor's degree in systems engineering (Universidad Hispanoamerica) Costa Rica.
 
 
 ## Documentation
 
-The application has been designed using REST microservices as follows:
+The application has been designed using the following technologies:
 
-- Users
-- Orders
-- Products
+- MongoDB
+- ExpressJS
+- ReactJS
+- NodeJS
+- Kubernetes
+- Docker
+- Microservices
 
-Also, I've used RabbitMQ to comunicate services, and MongoDB for
-the database.
+Basically, I created 3 microservices: Users, Products, Orders.
+The services use REST to handle business logic, also,
+I've used RabbitMQ to comunicate services, and MongoDB for the database.
 
 I will be adding more features as I'm moving the project from 
 docker-compose to kubernetes.
