@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: local-frontend
+  name: local
   namespace: ecommerce
   labels:
     io.kompose.service: local-frontend
@@ -20,14 +20,14 @@ spec:
     spec:
       containers:
         - name: local-frontend
-          image: node:latest
+          image: frontend:ecommerce
           imagePullPolicy: IfNotPresent
           workingDir: /usr/src/app
           command:
             - "/bin/sh"
             - "-c"
           args:
-            - "npm i && CI=true npm start"
+            - "cd frontend && yarn && yarn start"
           ports:
             - name: http
               containerPort: 3000
@@ -37,5 +37,36 @@ spec:
       volumes:
         - name: local-react
           hostPath:
-            path:  /run/desktop/mnt/c/Users/gab_m/Documents/ecommerce-mern/frontend
+            path:  /run/desktop/mnt/host/wsl/ecommerce-mern
             type: Directory
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: local-service
+  namespace: ecommerce
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: http
+  selector:
+    app: local
+  type: NodePort
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: local-ingress
+  namespace: ecommerce
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: local-service
+            port:
+              number: 80
