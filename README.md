@@ -75,7 +75,6 @@ NAME                                  DESIRED   CURRENT   READY   AGE
 replicaset.apps/database-5cc66d4455   1         1         1       22h
 replicaset.apps/frontend-588965cd9c   1         1         1       11s
 replicaset.apps/frontend-6c754c687b   0         0         0       10m
-replicaset.apps/frontend-77c98bf78f   0         0         0       21m
 replicaset.apps/orders-7dd886f588     1         1         1       21h
 replicaset.apps/products-7f8b898888   1         1         1       87m
 replicaset.apps/users-59d995fcbc      1         1         1       21h
