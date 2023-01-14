@@ -22,6 +22,11 @@ docker-compose to kubernetes.
 ## Installation
 
 ```bash
+# If you are running WSL and kubernetes (docker desktop) run the following:
+# Local dev only:
+mkdir /mnt/wsl/project-name
+sudo mount --bind project-name-path /mnt/wsl/project-name
+
 # Copy and paste the following output
 # into MONGO_URI value: kubernetes/secrets.yaml 
 echo -n mongodb://database:27017/ecommerce?directConnection=true | base64
