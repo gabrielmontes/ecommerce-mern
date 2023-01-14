@@ -92,7 +92,7 @@ const TopProducts = (props) => {
         </Box>
       ) : (
         <Grid container spacing={5} direction={{ xs: "column", md: "row" }} mt={2.5}>
-          {(products).slice(0, 3).map((product) => (
+          {(products)?.slice(0, 3)?.map((product) => (
             <Grid item xs={6} md={4} key={product._id}>
               <ProductsCard
                 name={product.name}

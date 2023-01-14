@@ -114,10 +114,11 @@ const HomeScreen = () => {
         <Grid container>
           <Grid item xs={12} md={12}>
             <Typography variant="h6" color="#FFF" align="center">
-              La Troja Cervecería Artesanal
+              Mern ecommerce
             </Typography>
             <Typography variant="body2" color="#FFF" align="center">
-              Innovamos los sabores de la cerveza en cada uno de nuestros productos.
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </Typography>
           </Grid>
         </Grid>

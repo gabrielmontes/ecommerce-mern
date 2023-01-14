@@ -48,13 +48,6 @@ const registerUser = asyncHandler(async (req, res) => {
     throw new Error('Datos incorrectos')
   };
 
-  SendEmailToQueue({
-    variant: "new",
-    user: `${name} ${lastname}`,
-    email: email,
-    subject: "Te damos la bienvenida a La Troja Cervecería"
-  });
-
   res.status(201).json({
     _id: user._id,
     name: user.name,
@@ -212,13 +205,6 @@ const newUser = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error('Datos incorrectos');
   };
-
-  SendEmailToQueue({
-    variant: "new",
-    user: `${name} ${lastname}`,
-    email: email,
-    subject: "Te damos la bienvenida a La Troja Cervecería"
-  });
 
   res.status(201).json("El usuario ha sido creado");
 });

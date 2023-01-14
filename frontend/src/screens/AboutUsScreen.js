@@ -11,17 +11,20 @@ import MainBox from '../components/MainBox';
 const rows = [
   {
     title: "Historia:",
-    text: `La Troja Cervecería Artesanal, fue fundada en el 2011, en el cantón de Moravia, provincia de San José.
-    Somos una PYME y estamos registrados ante el Ministerio de Economia, Industria y Comercio de Costa Rica desde el año 2020.`
+    text: `"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."`
   },
   {
     title: "Misión:",
-    text: `Brindar al mercado costarricense cervezas artesanales de calidad,
-    por medio de la constante  innovación de nuestros procesos de elaboracion de nuestras cervezas.`
+    text: `"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`
   },
   {
     title: "Visión:",
-    text: `Ser una cervecería artesanal líder en el país, reconocida por la calidad, el sabor y originalidad de cada una de nuestras cervezas.`
+    text: `
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    `
   },
 ]
 

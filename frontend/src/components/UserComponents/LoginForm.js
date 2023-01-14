@@ -61,7 +61,7 @@ const LoginForm = () => {
         <Box component="form" onSubmit={handleUserLogin}>
           <Stack spacing={2}>
             <Typography variant="h6" gutterBottom textAlign="center">
-              La Troja Cervecería Artesanal
+            Mern ecommerce
             </Typography>
             <CustomTextField setValue={setEmail} label="Correo electrónico" type="email" error="Digite el correo electrónico"/>
             <PasswordTextField pass={setPass} />

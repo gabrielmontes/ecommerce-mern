@@ -36,30 +36,6 @@ const addOrderItems = asyncHandler(async (req, res) => {
 
   const createdOrder = await order.save();
 
-  SendEmailToQueue({
-    variant: "order",
-    user: req.body.fullName,
-    email: req.body.email,
-    subject: "Confirmación de orden de La Troja Cervecería Artesanal",
-    totalPrice: totalPrice,
-    orderId: String(createdOrder.id).padStart(6, 0),
-    date: new Date(),
-    paymentMethod: paymentMethod,
-    shippingAddress: shippingAddress
-  });
-
-  SendEmailToQueue({
-    variant: "AdminNewOrder",
-    user: req.body.fullName,
-    email: "mercadeo@latrojacr.net",
-    subject: "Se ha recibido una nueva orden.",
-    totalPrice: totalPrice,
-    orderId: String(createdOrder.id).padStart(6, 0),
-    date: new Date(),
-    paymentMethod: paymentMethod,
-    shippingAddress: shippingAddress
-  });
-
   UpdateProduct(orderItems);
 
   res.status(201).json(createdOrder);

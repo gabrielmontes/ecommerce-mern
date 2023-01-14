@@ -90,7 +90,7 @@ export const login = (email, password) => async (dispatch) => {
 
     localStorage.setItem('userInfo', JSON.stringify(data));
 
-    dispatch(setMessage("success", "Bienvenido a La Troja Cervecería Artesanal."));
+    dispatch(setMessage("success", "Bienvenido."));
   } catch (error) {
     dispatch({
       type: USER_LOGIN_FAIL,

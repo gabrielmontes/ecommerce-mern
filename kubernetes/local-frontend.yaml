@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: local-frontend
+  namespace: ecommerce
+  labels:
+    io.kompose.service: local-frontend
+spec:
+  selector:
+    matchLabels:
+      io.kompose.service: local-frontend
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.27.0 (b0ed6a2c9)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: local-frontend
+    spec:
+      containers:
+        - name: local-frontend
+          image: node:latest
+          imagePullPolicy: IfNotPresent
+          workingDir: /usr/src/app
+          command:
+            - "/bin/sh"
+            - "-c"
+          args:
+            - "npm i && CI=true npm start"
+          ports:
+            - name: http
+              containerPort: 3000
+          volumeMounts:
+            - mountPath: /usr/src/app
+              name: local-react
+      volumes:
+        - name: local-react
+          hostPath:
+            path:  /run/desktop/mnt/c/Users/gab_m/Documents/ecommerce-mern/frontend
+            type: Directory
