@@ -14,12 +14,10 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import Container from '@mui/material/Container';
 import Badge from '@mui/material/Badge';
 import SearchBox from './SearchBox';
-import CardMedia from '@mui/material/CardMedia';
 import CartSideBar from './CartSideBar';
 import LoginScreen from './UserComponents/LoginRegister';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Layout from './Layout';
-import white from '@material-ui/core/colors/common';
 
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -35,10 +33,6 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 function CustomIconButton(props) {
   return (
     <IconButton
-      style={{
-        color: (
-          props.location.pathname !== "/") ? '#000' : '#FFF'
-      }}
       onClick={props.onClick}>
       {props.children}
     </IconButton>
