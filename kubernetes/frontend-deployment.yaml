@@ -29,11 +29,10 @@ spec:
         - image: frontend:ecommerce
           name: frontend
           ports:
-            - containerPort: 3000
+            - containerPort: 80
           resources: {}
           stdin: true
       restartPolicy: Always
-status: {}
 ---
 apiVersion: v1
 kind: Service
@@ -48,9 +47,9 @@ metadata:
   namespace: ecommerce
 spec:
   ports:
-  - port: 3000
-    targetPort: 3000
-    protocol: TCP
+    - port: 80
+      protocol: TCP
+      targetPort: 80
   selector:
     io.kompose.service: frontend
 status:

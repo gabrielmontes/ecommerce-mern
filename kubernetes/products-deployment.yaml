@@ -29,7 +29,7 @@ spec:
         - image: products:ecommerce
           name: ms-products
           ports:
-            - containerPort: 8005
+            - containerPort: 8003
           resources: {}
           volumeMounts:
             - mountPath: /usr/src/app/uploads
@@ -66,8 +66,8 @@ metadata:
 spec:
   ports:
     - name: "8005"
-      port: 8005
-      targetPort: 8005
+      port: 8003
+      targetPort: 8003
   selector:
     io.kompose.service: products
 status:
