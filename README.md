@@ -68,11 +68,11 @@ done
 # Once we apply everything it should look like this:
 k get all -n ecommerce
 NAME                            READY   STATUS    RESTARTS      AGE
-pod/database-5cc66d4455-kgxjw   1/1     Running   2 (94m ago)   22h
+pod/database-5cc66d4455-kgxjw   1/1     Running   0             22h
 pod/frontend-588965cd9c-6kxfl   1/1     Running   0             11s
-pod/orders-7dd886f588-pcslh     1/1     Running   2 (94m ago)   21h
+pod/orders-7dd886f588-pcslh     1/1     Running   0             21h
 pod/products-7f8b898888-pdptb   1/1     Running   0             87m
-pod/users-59d995fcbc-lmhp5      1/1     Running   2 (94m ago)   21h
+pod/users-59d995fcbc-lmhp5      1/1     Running   0             21h
 
 NAME               TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)     AGE
 service/database   ClusterIP   10.108.53.93     <none>        27017/TCP   22h
