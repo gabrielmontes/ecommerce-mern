@@ -2,7 +2,6 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://api-gw:8001",
   "license": "MIT",
   "dependencies": {
     "@emotion/react": "^11.10.4",
