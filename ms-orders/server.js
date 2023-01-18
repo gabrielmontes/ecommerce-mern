@@ -29,10 +29,6 @@ app.use(morgan('combined'));
 //Routes:
 app.use('/api/orders', orderRoutes)
 
-app.get('/', (req, res) => {
-	res.send({ service: "orders", status: 'up' })
-});
-
 app.use(notFound);
 app.use(errorHandler);
 
