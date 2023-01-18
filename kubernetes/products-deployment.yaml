@@ -65,8 +65,7 @@ metadata:
   namespace: ecommerce
 spec:
   ports:
-    - name: "8005"
-      port: 8003
+    - port: 8003
       targetPort: 8003
   selector:
     io.kompose.service: products
