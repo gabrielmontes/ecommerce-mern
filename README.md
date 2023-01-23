@@ -104,8 +104,6 @@ kubectl port-forward $(kubectl get pod -n ecommerce | egrep -Eo 'database-(\w+\-
 
 Contributions are always welcome!
 
-Fork as you'd like.
-
 
 ## License
 
