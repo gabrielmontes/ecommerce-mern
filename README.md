@@ -25,6 +25,9 @@ I've used RabbitMQ to comunicate services, and MongoDB for the database.
 I will be adding more features as I'm moving the project from 
 docker-compose to kubernetes.
 
+## Diagram
+![This is an image](default.png)
+
 ## Installation
 
 ```bash
