@@ -49,22 +49,7 @@ const productSchema = mongoose.Schema(
       required: true,
       default: 0,
     },
-    unitPrice: {
-      type: Number,
-      required: false,
-      default: 0,
-    },
-    sixpackPrice: {
-      type: Number,
-      required: false,
-      default: 0,
-    },
-    twelvepackPrice: {
-      type: Number,
-      required: false,
-      default: 0,
-    },
-    boxPrice: {
+    price: {
       type: Number,
       required: false,
       default: 0,

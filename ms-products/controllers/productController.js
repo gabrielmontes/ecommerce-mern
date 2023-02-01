@@ -56,10 +56,7 @@ const createProduct = asyncHandler(async (req, res) => {
   const {
     user,
     name,
-    unitPrice,
-    sixpackPrice,
-    twelvepackPrice,
-    boxPrice,
+    price,
     description,
     image,
     brand,
@@ -77,10 +74,7 @@ const createProduct = asyncHandler(async (req, res) => {
   const product = await Product.create({
     user,
     name,
-    unitPrice,
-    sixpackPrice,
-    twelvepackPrice,
-    boxPrice,
+    price,
     description,
     image,
     brand,
@@ -102,10 +96,7 @@ const createProduct = asyncHandler(async (req, res) => {
 const updateProduct = asyncHandler(async (req, res) => {
   const {
     name,
-    unitPrice,
-    sixpackPrice,
-    twelvepackPrice,
-    boxPrice,
+    price,
     description,
     image,
     brand,
@@ -121,10 +112,7 @@ const updateProduct = asyncHandler(async (req, res) => {
   };
 
   product.name = name;
-  product.unitPrice = unitPrice;
-  product.twelvepackPrice = twelvepackPrice;
-  product.sixpackPrice = sixpackPrice;
-  product.boxPrice = boxPrice;
+  product.price = price;
   product.description = description;
   product.image = image;
   product.brand = brand;
