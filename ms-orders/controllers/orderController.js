@@ -1,6 +1,5 @@
 import asyncHandler from 'express-async-handler';
 import Order from '../models/orderModel.js';
-import SendEmailToQueue from '../utils/SendMessageToQueue.js';
 import UpdateProduct from '../utils/UpdateProduct.js';
 import mongoose from 'mongoose';
 
