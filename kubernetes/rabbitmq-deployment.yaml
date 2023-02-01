@@ -6,14 +6,14 @@ metadata:
     kompose.version: 1.27.0 (b0ed6a2c9)
   creationTimestamp: null
   labels:
-    io.kompose.service: orders
-  name: orders
+    io.kompose.service: rabbitmq
+  name: rabbitmq
   namespace: ecommerce
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: orders
+      io.kompose.service: rabbitmq
   strategy: {}
   template:
     metadata:
@@ -22,30 +22,30 @@ spec:
         kompose.version: 1.27.0 (b0ed6a2c9)
       creationTimestamp: null
       labels:
-        io.kompose.service: orders
+        io.kompose.service: rabbitmq
     spec:
       containers:
-        - image: orders:ecommerce
-          name: ms-orders
+        - env:
+            - name: AMQP_URL
+              valueFrom:
+                secretKeyRef:
+                  name: ecommerce
+                  key: AMQP_URL
+            - name: RABBITMQ_DEFAULT_USER
+              valueFrom:
+                secretKeyRef:
+                  name: ecommerce
+                  key: RABBITMQ_DEFAULT_USER
+            - name: RABBITMQ_DEFAULT_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: ecommerce
+                  key: RABBITMQ_DEFAULT_PASS
+          image: rabbitmq:3.11-rc-alpine
+          name: rabbitmq
           ports:
-            - containerPort: 8004
+            - containerPort: 5672
           resources: {}
-          env:
-            - name: MONGO_URI
-              valueFrom:
-                secretKeyRef:
-                  name: ecommerce
-                  key: MONGO_URI
-            - name: JWT_SECRET
-              valueFrom:
-                secretKeyRef:
-                  name: ecommerce
-                  key: JWT_SECRET
-            - name: RABBITMQ_URL
-              valueFrom:
-                secretKeyRef:
-                  name: ecommerce
-                  key: RABBITMQ_URL
       restartPolicy: Always
 status: {}
 ---
@@ -57,15 +57,14 @@ metadata:
     kompose.version: 1.27.0 (b0ed6a2c9)
   creationTimestamp: null
   labels:
-    io.kompose.service: orders
-  name: orders
+    io.kompose.service: rabbitmq
+  name: rabbitmq
   namespace: ecommerce
 spec:
   ports:
-    - name: "8004"
-      port: 8004
-      targetPort: 8004
+    - port: 5672
+      targetPort: 5672
   selector:
-    io.kompose.service: orders
+    io.kompose.service: rabbitmq
 status:
   loadBalancer: {}

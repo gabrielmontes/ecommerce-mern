@@ -45,6 +45,11 @@ spec:
                 secretKeyRef:
                   name: ecommerce
                   key: JWT_SECRET
+            - name: RABBITMQ_URL
+              valueFrom:
+                secretKeyRef:
+                  name: ecommerce
+                  key: RABBITMQ_URL
       restartPolicy: Always
       volumes:
         - name: uploads

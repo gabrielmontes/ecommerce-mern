@@ -16,14 +16,14 @@ spec:
     spec:
       containers:
         - name: local-frontend
-          image: frontend:ecommerce
+          image: frontend-local:ecommerce
           imagePullPolicy: IfNotPresent
           workingDir: /usr/src/app
           command:
             - "/bin/sh"
             - "-c"
           args:
-            - "cd frontend && yarn && yarn start"
+            - "yarn && yarn start"
           ports:
             - name: http
               containerPort: 3000
@@ -39,7 +39,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: local-service
+  name: local-frontend
   namespace: ecommerce
 spec:
   ports:
@@ -49,20 +49,3 @@ spec:
   selector:
     app: local-frontend
   type: NodePort
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: local-ingress
-  namespace: ecommerce
-spec:
-  rules:
-  - http:
-      paths:
-      - path: /ecommerce
-        pathType: Prefix
-        backend:
-          service:
-            name: local-service
-            port:
-              number: 80
