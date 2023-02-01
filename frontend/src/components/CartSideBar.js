@@ -19,9 +19,11 @@ const CartSideBar = (props) => {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
+  console.log(cartItems);
+
   useEffect(() => {
-    if (props?.id) {
-      dispatch(addToCart(props?.id, props.item.split(',')[0], props.item.split(',')[1]));
+    if (props.id) {
+      dispatch(addToCart(props.id, props.qty, props.price));
     };
   }, [dispatch, props.id, props.item]);
 
@@ -84,8 +86,7 @@ const CartSideBar = (props) => {
                         <Typography variant="body2" color="text.secondary">
                           Precio: ₡{item.price}
                         </Typography>
-                        <Button variant="text" sx={{ minHeight: 0, minWidth: 0, padding: 0 }}
-                          onClick={() => removeFromCartHandler(item.product)}>
+                        <Button variant="text" sx={{ minHeight: 0, minWidth: 0, padding: 0 }} onClick={() => removeFromCartHandler(item.product)}>
                           Eliminar
                         </Button>
                       </Grid>
@@ -99,7 +100,7 @@ const CartSideBar = (props) => {
               <Stack spacing={1}>
                 <Typography variant="body2" color="text.secondary">
                   El total, los impuestos y {' '}
-                  <Link color="inherit" href="https://tienda.latrojacr.net/terms/">
+                  <Link color="inherit">
                     gastos de envío
                   </Link>{' '}
                   se calculan en la pantalla de pago.

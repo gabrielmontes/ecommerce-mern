@@ -64,7 +64,7 @@ const AdminProductScreen = () => {
     setImage(product.image || '');
     setCountInStock(product.countInStock || '');
     setDescription(product.description || '');
-    setCategory(product.category || '');
+    setCategory(product.category || 'sample');
   }, [dispatch, navigate, id, product, successUpdate, successCreate]);
 
 

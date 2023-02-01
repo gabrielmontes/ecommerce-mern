@@ -248,7 +248,7 @@ const ProductScreen = () => {
         </DialogActions>
       </Dialog>
       }
-      {isCartOpen && <CartSideBar isOpen={isCartOpen} handleClose={handleCloseCart} id={id} item={value}/>}
+      {isCartOpen && <CartSideBar isOpen={isCartOpen} handleClose={handleCloseCart} id={id} qty={1} price={product.price}/>}
     </MainBox >
   )
 }
