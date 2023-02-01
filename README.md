@@ -31,11 +31,6 @@ docker-compose to kubernetes.
 ## Installation
 
 ```bash
-# OPTIONAL: If you are running WSL and kubernetes (docker desktop) run the following:
-# Local dev only:
-mkdir /mnt/wsl/project-name
-sudo mount --bind project-name-path /mnt/wsl/project-name
-
 # Create docker images:
 declare -a images
 images=("users" "products" "orders" "email")
@@ -95,6 +90,17 @@ replicaset.apps/frontend-6c754c687b   0         0         0       10m
 replicaset.apps/orders-7dd886f588     1         1         1       21h
 replicaset.apps/products-7f8b898888   1         1         1       87m
 replicaset.apps/users-59d995fcbc      1         1         1       21h
+
+# OPTIONAL:
+# Local dev:
+
+# Apply local ingress: (backend)
+kubectl apply -f kubernetes/local-ingress.yaml
+curl http://kubernetes.docker.internal/api/products
+
+# Start yarn:
+yarn install & yarn start /frontend
+curl http://localhost:3000/
 
 # In case of connecting to mongo:
 kubectl port-forward $(kubectl get pod -n ecommerce | egrep -Eo 'database-(\w+\-)\w+') -n ecommerce 27017:27017
