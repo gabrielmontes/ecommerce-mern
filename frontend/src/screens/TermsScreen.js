@@ -22,13 +22,13 @@ const TermsScreen = () => {
               </Typography>
               <List dense>
                 <ListItem>
-                  <ListItemText primary="Correo electrónico: " secondary="contacto@latrojacr.net" />
+                  <ListItemText primary="Correo electrónico: " secondary="contacto@ecommerce.net" />
                 </ListItem>
                 <ListItem>
-                  <ListItemText primary="Whatsapp: " secondary="+50661542266." />
+                  <ListItemText primary="Whatsapp: " secondary="8888-8888." />
                 </ListItem>
                 <ListItem>
-                  <ListItemText primary="Dirección: " secondary="Heredia, Mini Bodegas #1073-1075" />
+                  <ListItemText primary="Dirección: " secondary="Dirección, Costa Rica." />
                 </ListItem>
               </List>
             </CardContent>

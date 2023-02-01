@@ -18,7 +18,7 @@ import CartSideBar from './CartSideBar';
 import LoginScreen from './UserComponents/LoginRegister';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Layout from './Layout';
-
+import HomeIcon from '@mui/icons-material/Home';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -114,7 +114,7 @@ export default function NavBar(props) {
         <Container maxWidth="xl">
           <Toolbar disableGutters={true}>
             <IconButton sx={{ ml: -1 }} onClick={handleHome}>
-              Home
+              <HomeIcon/>
             </IconButton>
             <Box sx={{ flexGrow: 1 }} />
             {(isOpen) ? (

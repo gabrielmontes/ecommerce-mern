@@ -22,11 +22,6 @@ import {
 import Progress from '../components/Progress';
 import CustomTextField from '../components/CustomTextField';
 
-const categories = [
-  { value: "beers", label: "Cervezas" },
-  { value: "merchandise", label: "Mercancía" },
-  { value: "other", label: "Otro" }
-];
 
 const AdminProductScreen = () => {
   const dispatch = useDispatch();
@@ -42,16 +37,10 @@ const AdminProductScreen = () => {
   const productCreate = useSelector((state) => state.productCreate)
   const { loading: loadingCreate, success: successCreate } = productCreate;
 
-  const userLogin = useSelector((state) => state.userLogin);
-  const { userInfo } = userLogin;
-
   const [image, setImage] = useState('');
   const [name, setName] = useState('');
-  const [unitPrice, setUnitPrice] = useState('');
-  const [sixpackPrice, setSixpackPrice] = useState('');
-  const [twelvepackPrice, setTwelvepackPrice] = useState('');
-  const [boxPrice, setBoxPrice] = useState('');
-  const [category, setCategory] = useState('');
+  const [price, setPrice] = useState('');
+  const [category, setCategory] = useState('sample');
   const [countInStock, setCountInStock] = useState('');
   const [description, setDescription] = useState('');
 
@@ -71,10 +60,7 @@ const AdminProductScreen = () => {
     }
 
     setName(product.name || '');
-    setUnitPrice(product.unitPrice || '');
-    setSixpackPrice(product.sixpackPrice || '');
-    setTwelvepackPrice(product.twelvepackPrice || '');
-    setBoxPrice(product.boxPrice || '');
+    setPrice(product.price || '');
     setImage(product.image || '');
     setCountInStock(product.countInStock || '');
     setDescription(product.description || '');
@@ -89,10 +75,7 @@ const AdminProductScreen = () => {
       dispatch(updateProduct({
         _id: id,
         name,
-        unitPrice,
-        sixpackPrice,
-        twelvepackPrice,
-        boxPrice,
+        price,
         image,
         category,
         description,
@@ -102,10 +85,7 @@ const AdminProductScreen = () => {
       dispatch(
         createProduct(
           name,
-          unitPrice,
-          sixpackPrice,
-          twelvepackPrice,
-          boxPrice,
+          price,
           image,
           category,
           description,
@@ -185,29 +165,8 @@ const AdminProductScreen = () => {
                         <CustomTextField value={countInStock} setValue={setCountInStock} label="Cantidad" type="number" error="Digite la cantidad" />
                       </Grid>
                       <Grid item md={6} xs={12}>
-                        <CustomTextField value={category} setValue={setCategory} label="Categoría del producto" select={true} error="Seleccion la categoría">
-                          {categories?.map((option) => (
-                            <MenuItem key={option.value} value={option.label}>
-                              {option.label}
-                            </MenuItem>
-                          ))}
-                        </CustomTextField>
+                        <CustomTextField value={price} setValue={setPrice} label={"Precio por unidad"} type="number" error={"Digite el precio por unidad"} />
                       </Grid>
-                      <Grid item md={6} xs={12}>
-                        <CustomTextField value={(category === "Cervezas")? sixpackPrice : unitPrice} 
-                        setValue={(category === "Cervezas")? setSixpackPrice : setUnitPrice} label={category === "Cervezas" ? "Precio de 6 pack" : "Precio por unidad"} type="number" 
-                        error={category === "Cervezas" ? "Digite el precio de 6 pack" : "Digite el precio por unidad"} />
-                      </Grid>
-                      {category === "Cervezas" &&
-                        <>
-                          <Grid item md={6} xs={12}>
-                            <CustomTextField value={twelvepackPrice} setValue={setTwelvepackPrice} label="Precio de 12 pack" type="number" error="Digite el precio de 12 pack" />
-                          </Grid>
-                          <Grid item md={6} xs={12}>
-                            <CustomTextField value={boxPrice} setValue={setBoxPrice} label="Precio de la caja" type="number" error="Digite el precio de la caja" />
-                          </Grid>
-                        </>
-                      }
                       <Grid item md={12} xs={12}>
                         <CustomTextField value={description} setValue={setDescription} label="Descripcion" type="text" error="Digite la descripcion" />
                       </Grid>
