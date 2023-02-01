@@ -26,7 +26,7 @@ I will be adding more features as I'm moving the project from
 docker-compose to kubernetes.
 
 ## Diagram
-![This is an image](default.png)
+![This is an image](diagram.png)
 
 ## Installation
 
