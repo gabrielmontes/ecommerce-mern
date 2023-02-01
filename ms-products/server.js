@@ -30,11 +30,6 @@ app.use(mongoSanitize());
 //Logging:
 app.use(morgan('combined'));
 
-// Routes:
-app.get('/', (req, res) => {
-  res.send({ service: "products", status: 'up' });
-});
-
 // Products:
 app.use('/api/products', productRoutes);
 
@@ -47,13 +42,10 @@ const cacheTime = 8640000 * 30;
 app.use('/api/products/upload', uploadRoutes);
 app.use('/api/products/uploads', express.static(path.join(__dirname, '/uploads'), { maxAge: cacheTime }));
 
-// Start listening to product queue:
-ListenToQueue();
-
 app.use(notFound);
 app.use(errorHandler);
 
-const PORT = 8005;
+const PORT = 8003;
 
 app.listen(
   PORT,
