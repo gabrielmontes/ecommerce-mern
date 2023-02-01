@@ -60,36 +60,8 @@ for deployment in $(find .); do
   kubectl apply -f $deployment;
 done
 
-# Once we apply everything it should look like this:
-k get all -n ecommerce
-NAME                            READY   STATUS    RESTARTS      AGE
-pod/database-5cc66d4455-kgxjw   1/1     Running   0             22h
-pod/frontend-588965cd9c-6kxfl   1/1     Running   0             11s
-pod/orders-7dd886f588-pcslh     1/1     Running   0             21h
-pod/products-7f8b898888-pdptb   1/1     Running   0             87m
-pod/users-59d995fcbc-lmhp5      1/1     Running   0             21h
-
-NAME               TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)     AGE
-service/database   ClusterIP   10.108.53.93     <none>        27017/TCP   22h
-service/frontend   ClusterIP   10.100.152.222   <none>        80/TCP      21m
-service/orders     ClusterIP   10.101.163.220   <none>        8004/TCP    22h
-service/products   ClusterIP   10.107.190.167   <none>        8003/TCP    22h
-service/users      ClusterIP   10.107.211.84    <none>        8002/TCP    22h
-
-NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/database   1/1     1            1           22h
-deployment.apps/frontend   1/1     1            1           21m
-deployment.apps/orders     1/1     1            1           22h
-deployment.apps/products   1/1     1            1           22h
-deployment.apps/users      1/1     1            1           22h
-
-NAME                                  DESIRED   CURRENT   READY   AGE
-replicaset.apps/database-5cc66d4455   1         1         1       22h
-replicaset.apps/frontend-588965cd9c   1         1         1       11s
-replicaset.apps/frontend-6c754c687b   0         0         0       10m
-replicaset.apps/orders-7dd886f588     1         1         1       21h
-replicaset.apps/products-7f8b898888   1         1         1       87m
-replicaset.apps/users-59d995fcbc      1         1         1       21h
+# Verify by curl or use web browser: 
+curl http://kubernetes.docker.internal
 
 # OPTIONAL:
 # Local dev:
